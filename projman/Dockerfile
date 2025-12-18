@@ -26,7 +26,7 @@ WORKDIR /root/
 COPY --from=builder /app/projman .
 
 # Expose port
-EXPOSE 8080
+EXPOSE 9094
 
 # Command to run the service
 CMD ["./projman"]

@@ -63,7 +63,7 @@ The service automatically registers with the host-server at startup and performs
 
 ## Environment Variables
 
-- `PORT` - Port to run the service on (default: 9090)
+- `PORT` - Port to run the service on (default: 9094)
 - `SERVICE_HOST` - Host for the service (default: localhost)
 - `SERVICE_REGISTRY_URL` - URL for the host-server registry (default: http://localhost:8085/api/registry)
 
@@ -86,7 +86,7 @@ go run *.go
 
 ### Create a Requirement
 ```bash
-curl -X POST http://localhost:9090/requirements \
+curl -X POST http://localhost:9094/requirements \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Implement User Authentication",
@@ -98,7 +98,7 @@ curl -X POST http://localhost:9090/requirements \
 
 ### Add a Sub-item
 ```bash
-curl -X POST http://localhost:9090/requirements/req-1/subitems \
+curl -X POST http://localhost:9094/requirements/req-1/subitems \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Create JWT middleware",
@@ -115,5 +115,5 @@ The service can also be run with Docker:
 docker build -t projman .
 
 # Run the container
-docker run -p 9090:8080 projman
+docker run -p 9094:9094 projman
 ```
