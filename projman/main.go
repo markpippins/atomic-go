@@ -33,7 +33,7 @@ func main() {
 	router := NewRouter()
 
 	// Start the service
-	servicePort := 9094  // Default port since 8080 is taken by broker-gateway
+	servicePort := 9094 // Default port since 8080 is taken by broker-gateway
 	if port != "" {
 		fmt.Sscanf(port, "%d", &servicePort)
 	}
@@ -66,7 +66,6 @@ func main() {
 
 	log.Fatal(http.ListenAndServe(":"+port, router))
 }
-
 
 func registerWithHostServer(registryURL, endpoint string) {
 	// Extract port from endpoint
