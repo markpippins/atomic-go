@@ -26,7 +26,7 @@ type ServiceRegistration struct {
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "8073"
 	}
 
 	// Set up routes using our custom router
