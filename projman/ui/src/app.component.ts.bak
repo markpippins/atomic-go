@@ -1,0 +1,74 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './dashboard.component';
+import { ProjectsComponent } from './projects.component';
+import { SubsystemsComponent } from './subsystems.component';
+import { FeaturesComponent } from './features.component';
+import { NavigationComponent } from './navigation.component';
+import { DataDictionaryComponent } from './data-dictionary.component';
+import { RequirementFormComponent } from './requirement-form.component';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule, 
+    NavigationComponent, 
+    DashboardComponent, 
+    ProjectsComponent, 
+    SubsystemsComponent, 
+    FeaturesComponent, 
+    DataDictionaryComponent,
+    RequirementFormComponent
+  ],
+  template: `
+    <div class="app-container">
+      <app-navigation></app-navigation>
+      <div class="content-area">
+        <dashboard-component></dashboard-component>
+        <projects-component></projects-component>
+        <subsystems-component></subsystems-component>
+        <features-component></features-component>
+        <data-dictionary-component></data-dictionary-component>
+        <requirement-form-component></requirement-form-component>
+      </div>
+    </div>
+  `,
+  styles: [`
+    .app-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-area {
+      flex: 1;
+      position: relative;
+    }
+
+    /* Hide all components by default, only show active tab content */
+    dashboard-component,
+    projects-component,
+    subsystems-component,
+    features-component,
+    data-dictionary-component,
+    requirement-form-component {
+      display: none;
+    }
+
+    /* Show component based on active tab */
+    :host.show-requirements dashboard-component,
+    :host.show-projects projects-component,
+    :host.show-subsystems subsystems-component,
+    :host.show-features features-component,
+    :host.show-data-dictionary data-dictionary-component,
+    :host.show-requirement-form requirement-form-component {
+      display: block;
+    }
+  `]
+})
+export class AppComponent {
+  constructor() {
+    // The navigation component will control which component is visible
+  }
+}
